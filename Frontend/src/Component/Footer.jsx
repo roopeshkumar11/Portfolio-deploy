@@ -25,7 +25,7 @@ function Footer() {
 
     try {
       const response = await axios.post(
-        "https://portfoliofrontend-0dr6.onrender.com/api/sendmessage",
+        "https://portfoliofrontend-0dr6.onrender.com/api/sendMessage",
         formdata
       );
       if (response.data && response.data.message) {
