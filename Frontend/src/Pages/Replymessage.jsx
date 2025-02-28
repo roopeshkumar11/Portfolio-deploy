@@ -11,7 +11,7 @@ function Replymessage() {
         const fetchdatasingle = async () => {
             const token = localStorage.getItem("token");
             try {
-                const response = await axios.get(`http://localhost:4000/api/singledata/${id}`, {
+                const response = await axios.get(`https://portfoliobackend-92m1.onrender.com/api/singledata/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setsingledata(response.data);
@@ -26,7 +26,7 @@ function Replymessage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:4000/api/adminmsg/adminmessage", {
+            const response = await axios.post("https://portfoliobackend-92m1.onrender.com/api/adminmsg/adminmessage", {
                 
                 Email: singledata.Email,
                 adminmessage: adminmessage,

@@ -8,7 +8,7 @@ const Logout = () => {
   const handleLogout = async () => {
     try {
      
-      await axios.post("http://localhost:4000/api/admin/logout");
+      await axios.post("https://portfoliobackend-92m1.onrender.com/api/admin/logout");
 
      
       localStorage.removeItem("token");

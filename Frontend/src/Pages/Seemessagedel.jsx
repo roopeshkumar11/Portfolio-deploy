@@ -18,7 +18,7 @@ export default function Seemessagedel() {
           const token = localStorage.getItem("token");
             try {
     
-                const response=await axios.get(`http://localhost:4000/api/singledata/${id}`,{
+                const response=await axios.get(`https://portfoliobackend-92m1.onrender.com/api/singledata/${id}`,{
                   headers: { Authorization: `Bearer ${token}` },
                 })
                 
@@ -38,7 +38,7 @@ export default function Seemessagedel() {
       const token = localStorage.getItem("token");
    
         try {
-            await axios.delete(`http://localhost:4000/api/deletedata/${id}`,{
+            await axios.delete(`https://portfoliobackend-92m1.onrender.com/api/deletedata/${id}`,{
               headers: { Authorization: `Bearer ${token}` },
             })
          

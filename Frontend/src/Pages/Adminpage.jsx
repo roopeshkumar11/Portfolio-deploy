@@ -84,7 +84,7 @@ function Adminpage() {
      
 
       try {
-        const response = await axios.get("http://localhost:4000/api/getalldmessage", {
+        const response = await axios.get("https://portfoliobackend-92m1.onrender.com/api/getalldmessage", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMessages(response.data);
