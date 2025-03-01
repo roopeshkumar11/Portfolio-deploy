@@ -9,6 +9,7 @@ const sendMessage = async (req, res) => {
         if (existingMessage) {
             return res.status(200).json({ message: "Already messaged. Use a new email to send data." });
         }
+        console.log("req.body!!!!!!!!!!!!!!!!!!!!!",req.body)
 
         const newMessage = new Message(req.body);
         await newMessage.save();
