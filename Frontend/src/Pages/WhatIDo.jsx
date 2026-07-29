@@ -1,67 +1,104 @@
-import React from 'react';
-import Card from '../Component/Card';
+import React from "react";
+import SpotlightCard from "../Component/SpotlightCard";
+import { FaCode, FaServer, FaDatabase, FaTools } from "react-icons/fa";
 
 function WhatIDo() {
-  const cardsData = [
+  const skillsData = [
     {
-      title: "Frontend Developer",
-      description: "This card is for Frontend developers, focusing on HTML, CSS, JavaScript, and UI/UX.",
-      imageUrl: "/pic1.jpeg",
-      buttonText: "Learn More",
+      title: "Frontend Engineering",
+      description: "Crafting highly performant, responsive, and pixel-perfect interfaces with reactive behaviors and micro-interactions.",
+      icon: <FaCode className="text-3xl text-cosmic-cyan" />,
+      technologies: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "TypeScript", "HTML5 & CSS3"],
+      glowColor: "rgba(6, 182, 212, 0.15)"
     },
     {
-      title: "Backend Developer",
-      description: "This card is for Backend developers, specializing in server-side logic, databases, and APIs.",
-      imageUrl: "/pic2.jpeg",
-      buttonText: "Read More",
+      title: "Backend & API Design",
+      description: "Developing robust backend architectures, secure user authorization logic, and structured RESTful endpoints.",
+      icon: <FaServer className="text-3xl text-cosmic-purple" />,
+      technologies: ["Node.js", "Express.js", "JWT Auth", "REST APIs"],
+      glowColor: "rgba(139, 92, 246, 0.15)"
     },
     {
-      title: "React.js Developer",
-      description: "This card is for React.js developers, working on building interactive UIs and single-page applications.",
-      imageUrl: "/pic4.jpeg",
-      buttonText: "Explore",
+      title: "Databases & Schemas",
+      description: "Designing optimized data structures, managing relational and non-relational models, and structuring schema models for application logic.",
+      icon: <FaDatabase className="text-3xl text-cosmic-pink" />,
+      technologies: ["MongoDB", "MySQL", "Database Schema Design"],
+      glowColor: "rgba(236, 72, 153, 0.15)"
     },
     {
-      title: "Web Design",
-      description: "This is the second card, showcasing key details about a specific project or feature.",
-      imageUrl: "/pic2.jpeg",
-      buttonText: "Read More",
-    },
-    {
-      title: "Full Stack Developer",
-      description: "This is the third card, offering insights into a particular aspect or topic.",
-      imageUrl: "/pic1.jpeg",
-      buttonText: "Explore",
-    },
-
-    {
-      title: "Full Stack Developer",
-      description: "This is the third card, offering insights into a particular aspect or topic.",
-      imageUrl: "/pic4.jpeg",
-      buttonText: "Explore",
-    },
+      title: "DevOps & Tooling",
+      description: "Automating development pipelines, testing API endpoints, and managing cloud deployment environments.",
+      icon: <FaTools className="text-3xl text-yellow-500" />,
+      technologies: ["Git & GitHub", "Postman", "Render Deployment"],
+      glowColor: "rgba(234, 179, 8, 0.15)"
+    }
   ];
 
   return (
-    <div className="bg-black text-center px-4">
-      <h1 className="text-gray-300 pt-6 text-4xl font-bold">What I Do</h1>
-      <p className="text-xl text-[#4FC3F7]">My Services</p>
+    <section id="services" className="relative py-24 px-6 border-t border-white/5 overflow-hidden">
+      {/* Background Decorative Element */}
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-cosmic-cyan/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="flex justify-center items-center ">
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 py-10">
-          {cardsData.map((card, index) => (
-            <Card
+      <div className="max-w-6xl mx-auto z-10 relative">
+        {/* Header Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold tracking-widest font-mono text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-cyan to-cosmic-pink">
+            WHAT I DO //
+          </h2>
+          <p className="text-sm font-mono text-gray-400 mt-2 uppercase tracking-widest">
+            Technical Capabilities & Skill Architecture
+          </p>
+        </div>
+
+        {/* Skills Cards Grid */}
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+          {skillsData.map((skill, index) => (
+            <SpotlightCard
               key={index}
-              title={card.title}
-              description={card.description}
-              imageUrl={card.imageUrl}
-              buttonText={card.buttonText}
-            />
+              spotlightColor={skill.glowColor}
+              className="h-full"
+            >
+              <div className="p-8 flex flex-col justify-between h-full space-y-6">
+                <div className="space-y-4">
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                      {skill.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-white tracking-wide">
+                      {skill.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    {skill.description}
+                  </p>
+                </div>
+
+                {/* Tech Badges */}
+                <div className="space-y-2">
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-gray-500">
+                    Core Technologies:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {skill.technologies.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-xs font-mono px-3 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300 hover:border-white/20 transition duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </SpotlightCard>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default WhatIDo;
+

@@ -2,31 +2,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-
 const Login = () => {
-const navigate=useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-
-
+  const [loading, setLoading] = useState(false);
 
   const loginUser = async (email, password) => {
     try {
-  
       const response = await axios.post("https://portfoliobackend-92m1.onrender.com/api/admin/loginadmin", {
         email,
         password,
       });
 
       if (response.data.token) {
-        
         localStorage.setItem("token", response.data.token);
-        
-        
         axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-
         return { success: true, message: "Login successful" };
       } else {
         return { success: false, message: response.data.message };
@@ -36,13 +29,15 @@ const navigate=useNavigate();
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset errors
+    setError("");
+    setMessage("");
+    setLoading(true);
 
     if (!email || !password) {
       setError("Please fill out all fields.");
+      setLoading(false);
       return;
     }
 
@@ -50,36 +45,60 @@ const navigate=useNavigate();
 
     if (result.success) {
       setMessage(result.message);
-      navigate("/addminm")
-      
+      setTimeout(() => {
+        navigate("/addminm");
+      }, 1000);
     } else {
       setError(result.message);
     }
+    setLoading(false);
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
-        {message && <p className="text-green-500 text-center mb-4">{message}</p>}
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
+    <div className="relative min-h-screen flex justify-center items-center bg-obsidian text-gray-300 px-6 py-20 overflow-hidden">
+      {/* Background spotlights */}
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-cosmic-purple/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-cosmic-cyan/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="w-full max-w-md p-8 glassmorphism rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-10">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold font-mono tracking-widest text-white">
+            SYS_LOGIN //
+          </h2>
+          <p className="text-xs font-mono text-gray-500 mt-2 uppercase tracking-widest">
+            Authorization Required
+          </p>
+        </div>
+
+        {message && (
+          <p className="text-xs font-mono text-center p-3 rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 mb-6">
+            {message}
+          </p>
+        )}
+        {error && (
+          <p className="text-xs font-mono text-center p-3 rounded-lg border border-red-500/30 bg-red-500/10 text-red-400 mb-6">
+            {error}
+          </p>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-2">
+            <label htmlFor="email" className="block text-xs uppercase tracking-wider font-mono text-gray-400">
+              Admin Email
             </label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-cosmic-purple transition duration-300 text-sm"
+              placeholder="admin@example.com"
               required
             />
           </div>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <div className="space-y-2">
+            <label htmlFor="password" className="block text-xs uppercase tracking-wider font-mono text-gray-400">
               Password
             </label>
             <input
@@ -87,27 +106,31 @@ const navigate=useNavigate();
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-cosmic-cyan transition duration-300 text-sm"
+              placeholder="••••••••"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            disabled={loading}
+            className="w-full font-mono uppercase tracking-widest text-xs py-4 bg-gradient-to-r from-cosmic-purple to-cosmic-cyan text-white font-bold rounded-xl shadow-lg hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition duration-500 hover:scale-[1.01] active:scale-95 disabled:opacity-50"
           >
-            Login
+            {loading ? "AUTHENTICATING..." : "EXEC_LOGIN //"}
           </button>
         </form>
-        <p className="text-center mt-4">
-  Don't have an account?{" "}
-  <Link to="/adminregiter" className="text-blue-600 font-medium hover:underline">
-    Register here
-  </Link>
-</p>
+
+        <p className="text-center text-xs font-mono text-gray-500 mt-8 uppercase tracking-widest">
+          Unauthorized?{" "}
+          <Link to="/adminregiter" className="text-cosmic-cyan hover:text-cosmic-pink transition duration-300 underline">
+            Register here
+          </Link>
+        </p>
       </div>
     </div>
   );
 };
 
 export default Login;
+

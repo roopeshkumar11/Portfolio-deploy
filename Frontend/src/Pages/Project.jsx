@@ -1,37 +1,52 @@
-import React from 'react';
-import Project_card from '../Component/Project_card';
+import React from "react";
+import Project_card from "../Component/Project_card";
 
 function Project() {
   const data = [
     {
       imageUrl: "/pic1.jpeg",
-      title: "JustThought",
-      description: "A platform to share your random thoughts.",
-      projectlink: "https://github.com/roopeshkumar11/MAIN-MERN-Project/tree/main/AddThought_websitet",
+      title: "Turban Store (MERN E-commerce)",
+      description: "A complete MERN stack storefront featuring user authentication, category cataloging, search filters, admin stock control panel, and optimization via lazy loading.",
+      tags: ["MERN Stack", "JWT Auth", "Tailwind CSS", "React Lazy Loading"],
+      projectlink: "https://github.com/roopeshkumar11/new_pr",
+      liveLink: "https://turbon-store.netlify.app/"
     },
     {
       imageUrl: "/pic2.jpeg",
       title: "Restaurant Website",
-      description: "A website built for restaurants to showcase their menu and services.",
+      description: "A fully responsive React web application built to showcase restaurant menus, active services, food items, and responsive contact sections.",
+      tags: ["React.js", "Tailwind CSS", "Responsive Design", "Frontend"],
       projectlink: "https://github.com/roopeshkumar11/React-project/tree/main/Resturant-Website",
+      liveLink: "https://anuparna-resturant-roopesh.netlify.app/"
     },
     {
-      imageUrl: "/pic3.jpeg", // Use an actual image for this project
-      title: "Portfolio",
-      description: "A personal portfolio to showcase my web development projects and skills.",
-      projectlink: "https://github.com/roopeshkumar11/MAIN-MERN-Project/tree/main/Portfolio",
-    },
+      imageUrl: "/pic3.jpeg",
+      title: "JustThought",
+      description: "A dynamic web application where users can share random thoughts and reflections, connected to database endpoints for persistence.",
+      tags: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
+      projectlink: "https://github.com/roopeshkumar11/MAIN-MERN-Project/tree/main/AddThought_website",
+      liveLink: "https://addthought-website.onrender.com"
+    }
   ];
-  
 
   return (
-    <div className="bg-black px-4">
-      <div className="text-center">
-        <p className="text-4xl font-bold mb-4 text-gray-300">Projects</p>
-        <p className="text-xl text-[#4FC3F7]">Some of my work</p>
-      </div>
-      <div className="flex justify-center items-center">
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 py-10">
+    <section id="projects" className="relative py-24 px-6 border-t border-white/5 overflow-hidden">
+      {/* Background spotlights */}
+      <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-cosmic-purple/5 rounded-full blur-[80px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto z-10 relative">
+        {/* Header Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold tracking-widest font-mono text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-cyan to-cosmic-pink">
+            PROJECTS //
+          </h2>
+          <p className="text-sm font-mono text-gray-400 mt-2 uppercase tracking-widest">
+            Selected Software Engineering Showcase
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {data.map((project, index) => (
             <Project_card
               key={index}
@@ -39,12 +54,15 @@ function Project() {
               description={project.description}
               imageUrl={project.imageUrl}
               projectlink={project.projectlink}
+              tags={project.tags}
+              liveLink={project.liveLink}
             />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default Project;
+

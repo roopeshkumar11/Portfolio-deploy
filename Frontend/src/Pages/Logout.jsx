@@ -23,14 +23,12 @@ const Logout = () => {
   };
 
   return (
-    
-        <button
-          onClick={handleLogout}
-          className="w-full py-2  text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 "
-        >
-          Logout
-        </button>
-     
+    <button
+      onClick={handleLogout}
+      className="px-4 py-2 bg-red-600/15 border border-red-500/30 hover:bg-red-600/20 text-red-400 hover:text-red-300 font-bold rounded-xl transition duration-300 uppercase tracking-widest text-[11px] font-mono whitespace-nowrap cursor-pointer"
+    >
+      [ LOGOUT ]
+    </button>
   );
 };
 
