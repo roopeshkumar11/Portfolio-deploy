@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaPhone, FaWhatsapp } from "react-icons/fa";
 
 function Footer() {
   const [formdata, setFormData] = useState({
@@ -76,7 +76,17 @@ function Footer() {
                 </div>
               </div>
 
-
+              <div className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-green-500 transition duration-300">
+                  <FaWhatsapp className="text-green-500" />
+                </div>
+                <div>
+                  <p className="text-gray-500 text-xs uppercase">WhatsApp</p>
+                  <a href="https://wa.me/918651775002" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+                    +91 8651775002
+                  </a>
+                </div>
+              </div>
 
               <div className="flex items-center gap-3 group">
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-cosmic-pink transition duration-300">
@@ -84,7 +94,7 @@ function Footer() {
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs uppercase">Location</p>
-                  <span className="text-gray-300">Jaipur, Rajasthan, India</span>
+                  <span className="text-gray-300">Noida, Uttar Pradesh, India</span>
                 </div>
               </div>
             </div>

@@ -39,9 +39,9 @@ function Body_page() {
         </p>
 
         <p className="max-w-xl text-gray-400 text-sm md:text-base leading-relaxed">
-          I am a Computer Science Engineering student specializing in Artificial Intelligence & Machine Learning. 
-          Experienced in building high-performance full-stack web architectures, optimizing data logic, and 
-          engineering clean user-centric interfaces.
+          I am a Full-Stack Software Engineer & Freelance Developer specializing in AI & Machine Learning. 
+          I help businesses and startups build high-performance web architectures, custom digital products, 
+          and scalable, user-centric interfaces.
         </p>
 
         {/* Call to Actions */}

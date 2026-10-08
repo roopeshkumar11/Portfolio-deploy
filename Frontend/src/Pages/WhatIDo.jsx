@@ -1,9 +1,16 @@
 import React from "react";
 import SpotlightCard from "../Component/SpotlightCard";
-import { FaCode, FaServer, FaDatabase, FaTools } from "react-icons/fa";
+import { FaCode, FaServer, FaDatabase, FaTools, FaLaptopCode, FaRocket } from "react-icons/fa";
 
 function WhatIDo() {
   const skillsData = [
+    {
+      title: "Full-Stack Web Development",
+      description: "End-to-end development of custom web applications, seamlessly integrating highly responsive frontends with secure, scalable backend systems.",
+      icon: <FaLaptopCode className="text-3xl text-green-400" />,
+      technologies: ["MERN Stack", "REST APIs", "WebSockets", "Auth"],
+      glowColor: "rgba(74, 222, 128, 0.15)"
+    },
     {
       title: "Frontend Engineering",
       description: "Crafting highly performant, responsive, and pixel-perfect interfaces with reactive behaviors and micro-interactions.",
@@ -31,6 +38,13 @@ function WhatIDo() {
       icon: <FaTools className="text-3xl text-yellow-500" />,
       technologies: ["Git & GitHub", "Postman", "Render Deployment"],
       glowColor: "rgba(234, 179, 8, 0.15)"
+    },
+    {
+      title: "Freelance & Client Solutions",
+      description: "Delivering high-quality freelance projects, MVP development for startups, and digital transformation for local businesses to drive growth.",
+      icon: <FaRocket className="text-3xl text-orange-400" />,
+      technologies: ["E-commerce", "Booking Systems", "Custom Dashboards", "Landing Pages"],
+      glowColor: "rgba(251, 146, 60, 0.15)"
     }
   ];
 

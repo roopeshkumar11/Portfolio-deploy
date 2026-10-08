@@ -4,25 +4,33 @@ import Project_card from "../Component/Project_card";
 function Project() {
   const data = [
     {
+      imageUrl: "/restaurant_mockup.png",
+      title: "Restaurant Website",
+      description: "An advanced, fully responsive restaurant platform enabling digital table reservations, interactive multi-category menus, and seamless online food ordering. Built to maximize user engagement and streamline business operations.",
+      tags: ["React.js", "Tailwind CSS", "Redux", "Responsive Design"],
+      projectlink: "https://github.com/roopeshkumar11/React-project/tree/main/Resturant-Website",
+      liveLink: "https://demo-website-resturant.netlify.app/"
+    },
+    {
+      imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop",
+      title: "Gym Website",
+      description: "A full-stack gym management platform designed for modern fitness centers. Features include membership tier subscriptions, online class scheduling, interactive trainer booking, and a high-performance, conversion-optimized landing page.",
+      tags: ["React.js", "Node.js", "MongoDB", "Tailwind CSS", "Framer Motion"],
+      projectlink: "https://github.com/roopeshkumar11",
+      liveLink: "https://gymdemowebiste.netlify.app/"
+    },
+    {
       imageUrl: "/pic1.jpeg",
       title: "Turban Store (MERN E-commerce)",
-      description: "A complete MERN stack storefront featuring user authentication, category cataloging, search filters, admin stock control panel, and optimization via lazy loading.",
-      tags: ["MERN Stack", "JWT Auth", "Tailwind CSS", "React Lazy Loading"],
+      description: "A complete MERN stack storefront featuring secure user authentication, product cataloging, search filters, an admin stock control panel, and advanced optimization via lazy loading.",
+      tags: ["MERN Stack", "JWT Auth", "Tailwind CSS", "Redux"],
       projectlink: "https://github.com/roopeshkumar11/new_pr",
       liveLink: "https://turbon-store.netlify.app/"
     },
     {
-      imageUrl: "/pic2.jpeg",
-      title: "Restaurant Website",
-      description: "A fully responsive React web application built to showcase restaurant menus, active services, food items, and responsive contact sections.",
-      tags: ["React.js", "Tailwind CSS", "Responsive Design", "Frontend"],
-      projectlink: "https://github.com/roopeshkumar11/React-project/tree/main/Resturant-Website",
-      liveLink: "https://anuparna-resturant-roopesh.netlify.app/"
-    },
-    {
       imageUrl: "/pic3.jpeg",
       title: "JustThought",
-      description: "A dynamic web application where users can share random thoughts and reflections, connected to database endpoints for persistence.",
+      description: "A dynamic web application where users can share random thoughts and reflections, connected to secure database endpoints for data persistence and realtime updates.",
       tags: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
       projectlink: "https://github.com/roopeshkumar11/MAIN-MERN-Project/tree/main/AddThought_website",
       liveLink: "https://addthought-website.onrender.com"

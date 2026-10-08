@@ -5,7 +5,7 @@ function About() {
   const experiences = [
     {
       type: "internship",
-      role: "MERN Stack Developer Intern",
+      role: "MERN Stack Developer",
       company: "Regrip India Private Limited",
       duration: "2026 – Present",
       location: "Jaipur, India",
@@ -18,7 +18,7 @@ function About() {
     },
     {
       type: "internship",
-      role: "Backend Developer Intern",
+      role: "Backend Developer",
       company: "Systrac Pvt. Ltd.",
       duration: "May 2025 – Aug 2025",
       location: "Jaipur, India",
